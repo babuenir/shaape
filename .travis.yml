@@ -2,20 +2,8 @@ language: python
 python:
   - "3.2"
 install:
-  - export SHAAPE_DIR=$(pwd)
-  - export TOOLS_DIR=$SHAAPE_DIR/../tools
   - pip install -r requirements.txt --use-mirrors
-  - sudo apt-get install libcairo2-dev python3.2-dev python-scipy
-  - mkdir $TOOLS_DIR
-  - wget -c http://cairographics.org/releases/pycairo-1.10.0.tar.bz2 -O $TOOLS_DIR/pycairo-1.10.0.tar.bz2
-  - cd $TOOLS_DIR
-  - tar xf pycairo-1.10.0.tar.bz2
-  - cd pycairo-1.10.0
-  - export PYTHON=python3
-  - ./waf configure --prefix=/usr/local
-  - ./waf build
-  - sudo ./waf install
-  - cd $SHAAPE_DIR
+  - sudo apt-get install libcairo2-dev python3.2-dev python-scipy python-cairo libpango1.0-0
 script:
   - make clean
   - make tests
