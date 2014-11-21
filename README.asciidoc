@@ -1,10 +1,12 @@
 README
 ======
 
+image:https://travis-ci.org/babuenir/shaape.svg["Build Status", link="https://travis-ci.org/babuenir/shaape"]
+
 About Shaape
 ------------
 Shaape processes ascii drawings of diagrams and converts them to pixel or
-vector graphics. 
+vector graphics.
 The word *Shaape* itself is a neologism from *shape* and *ascii art*.
 
 Why to use Shaape
@@ -31,7 +33,7 @@ What is supported
 - arrows (that even can snap to target points)
 +
 ["shaape",scaling="0.7"]
-----    
+----
         +-->
        /     /\
   >---+---->+  +
@@ -41,7 +43,7 @@ What is supported
   * color
 +
 ["shaape",scaling="0.7"]
-----    
+----
  +---+ +---+ +---+
  | a | | b | | c |
  +---+ +---+ +---+
@@ -54,8 +56,8 @@ options:
   * gradients
 +
 ["shaape",scaling="0.7"]
-----    
- +---+ 
+----
+ +---+
  | a |
  +---+
 options:
@@ -65,10 +67,10 @@ options:
   * shadows
 +
 ["shaape",scaling="0.7"]
-----    
- +---+ +---+ 
- | a | | b | 
- +---+ +---+ 
+----
+ +---+ +---+
+ | a | | b |
+ +---+ +---+
 options:
 - ".*" : {text : [[0,0,0,0]]}
 - "a" : {fill : [shadow]}
@@ -77,8 +79,8 @@ options:
   * transparency
 +
 ["shaape",scaling="0.7"]
-----    
- +---+ 
+----
+ +---+
  | a |
  +---+
 options:
@@ -88,7 +90,7 @@ options:
   * line types: solid, dotted, dashed, dash-dotted
 +
 ["shaape",scaling="0.7"]
-----    
+----
 a------
 b------
 c------
@@ -103,18 +105,18 @@ options:
 - monospaced text in the whole drawing
 +
 ["shaape",scaling="0.7"]
-----    
- +-----+ 
+----
+ +-----+
  | abc |
  +-----+
 ----
 - all objects can be stacked or crossing, z-order is automatically determined
 +
 ["shaape",scaling="0.5"]
-----    
+----
    +--+
    |  |
- +-|--|---+ 
+ +-|--|---+
  | |  |   |
  +-|--|---+
    |  |
@@ -123,17 +125,17 @@ options:
 - corners can be either miter or round (the '*' character)
 +
 ["shaape",scaling="0.7"]
-----    
- *---+ 
+----
+ *---+
  |   |  ***   *
  +---* *   ***
 ----
 - renders to png, svg, eps(experimental), pdf(experimental)
 +
 ["shaape",scaling="0.6"]
-----    
+----
 +-------+   +-------+   +-------+   +-------+
-|       |\  |       |\  |       |\  |       |\ 
+|       |\  |       |\  |       |\  |       |\
 |       +-+ |       +-+ |       +-+ |       +-+
 |   PNG   | |   SVG   | |   EPS   | |   PDF   |
 |         | |         | |         | |         |
@@ -143,7 +145,7 @@ options:
 - md5sum generation/checking to prevent image generation on unchanged sources
 +
 ["shaape",scaling="0.7"]
-----     
+----
             '[changed]'
             +----------> regenerate >----+
            /                              \
@@ -264,7 +266,7 @@ renders:
 ---------------------------------------------------------------------
 
 ==== Text
-Text can be directly written into the diagram. Words that contain special 
+Text can be directly written into the diagram. Words that contain special
 characters need to be quoted.
 
 ---------------------------------------------------------------------
@@ -315,7 +317,7 @@ Arrows snap to corners, that are near where they are pointing to:
     +---+   v      <     v
  -->|   |    \    /     >+<
  -->+   |     \  /       ^
-    |   |     ^ >        
+    |   |     ^ >
     +---+
 ---------------------------------------------------------------------
 
@@ -326,7 +328,7 @@ renders:
     +---+   v      <     v
  -->|   |    \    /     >+<
  -->+   |     \  /       ^
-    |   |     ^ >        
+    |   |     ^ >
     +---+
 ---------------------------------------------------------------------
 
@@ -334,7 +336,7 @@ renders:
 
 The `+` character is used to connect lines:
 ---------------------------------------------------------------------
-  \|/          |        
+  \|/          |
  --+--   +--   +---  ---+---
   /|\   /               |
 ---------------------------------------------------------------------
@@ -343,7 +345,7 @@ renders:
 
 [shaape]
 ---------------------------------------------------------------------
-  \|/          |        
+  \|/          |
  --+--   +--   +---  ---+---
   /|\   /               |
 ---------------------------------------------------------------------
@@ -373,7 +375,7 @@ renders:
 Bezier curves are drawn using the `*` character. Shaape tries to match the
 drawn curve smoothly. Bezier curves can be connected to lines and connectors.
 The `*` itself is a similar connector as `+` and thus can be used to create
-junctions in special cases too. 
+junctions in special cases too.
 ----
  **  **  **  ---+       ****
 *      **        \     *
@@ -443,9 +445,9 @@ writing the name next to them:
 
 ---------------------------------------------------------------------
                    +---->
-  +------+        /         
-  | box1 |  -----+ 
-  +------+    line1    
+  +------+        /
+  | box1 |  -----+
+  +------+    line1
 ---------------------------------------------------------------------
 
 ==== Style definition
@@ -492,14 +494,14 @@ The style definition itself contains a yaml dictionary, that may have 3 keys:
 ===== Fill
 Fill may contain:
 
-* +shadow+ / +no-shadow+: selects wether the object drops a shadow 
+* +shadow+ / +no-shadow+: selects wether the object drops a shadow
                       (default is shadow)
 +
 .Example: All shapes without shadow
 ----
 - ".*" : {fill : [no-shadow]}
 ----
-* +solid+ / +dashed+ / +dotted+ / +dash-dotted+: selects the line style (only 
+* +solid+ / +dashed+ / +dotted+ / +dash-dotted+: selects the line style (only
                                                  applied to lines, default is
                                                  solid)
 +
@@ -509,7 +511,7 @@ Fill may contain:
 ----
 * multiple color definitions, where a color is:
   - +red+ / +green+ / +blue+
-  - a list with three floats from +0.0+ to +1.0+, representing RGB 
+  - a list with three floats from +0.0+ to +1.0+, representing RGB
    (e.g. +[0.5, 0.5, 0.5]+)
   - a list with four floats from +0.0+ to +1.0+, representing RGBA
     NOTE: If you provide more than one color, then the polygon will use a
@@ -535,7 +537,7 @@ Fill may contain:
 ===== Frame
 Frame may contain:
 
-* +solid+ / +dashed+ / +dotted+ / +dash-dotted+: selects the line style 
+* +solid+ / +dashed+ / +dotted+ / +dash-dotted+: selects the line style
 +
 .Example: All frames dotted
 ----
@@ -543,7 +545,7 @@ Frame may contain:
 ----
 * a color definition, where a color is:
   - +red+ / +green+ / +blue+
-  - a list with three floats from +0.0+ to +1.0+, representing RGB 
+  - a list with three floats from +0.0+ to +1.0+, representing RGB
    (e.g. +[0.5, 0.5, 0.5]+)
 +
 .Example: All frames blue
@@ -563,7 +565,7 @@ Text may contain:
 * a font family description in the pango.FontDescription format(see http://www.pygtk.org/docs/pygtk/class-pangofontdescription.html#constructor-pangofontdescription[pygtk])
 * a color definition, where a color is:
   - +red+ / +green+ / +blue+
-  - a list with three floats from +0.0+ to +1.0+, representing RGB 
+  - a list with three floats from +0.0+ to +1.0+, representing RGB
 * +shadow+ / +no-shadow+: selects wether the object drops a shadow (default is no-shadow)
 
 .Example: All text red, italic, Courier, size 9 with shadows
