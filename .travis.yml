@@ -3,10 +3,11 @@ python:
   - "3.2"
 install:
   - pip install -r requirements.txt
+  - sudo apt-get install libcairo2-dev python3.2-dev python-scipy python-cairo libpango1.0-0 ttf-mscorefonts-installer libpixman-1-0 libcairomm-1.0-1 python-gi-cairo libpangomm-1.4-1
 script:
+  - python setup.py develop
   - make clean
   - make tests
 virtualenv:
   system_site_packages: true
-before_install:
-  - sudo apt-get install libcairo2-dev python3.2-dev python-scipy python-cairo libpango1.0-0 ttf-mscorefonts-installer libpixman-1-0 libcairomm-1.0-1 python-gi-cairo libpangomm-1.4-1
+
