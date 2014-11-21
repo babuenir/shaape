@@ -5,7 +5,7 @@ install:
   - pip install -r requirements.txt --use-mirrors
   - sudo apt-get install libcairo2-dev python3.2-dev python-scipy
   - wget -c http://cairographics.org/releases/pycairo-1.10.0.tar.bz2
-  - tar xf pycairo-1.10.0
+  - tar xf pycairo-1.10.0.tar.bz2
   - cd pycairo-1.10.0
   - export PYTHON=python3
   - ./waf configure --prefix=/usr/local
