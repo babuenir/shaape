@@ -5,6 +5,7 @@ install:
   - pip install -r requirements.txt
   - sudo apt-get install libcairo2-dev python3.2-dev python-scipy python-cairo libpango1.0-0 ttf-mscorefonts-installer libpixman-1-0 libcairomm-1.0-1 python-gi-cairo libpangomm-1.4-1 python-gtk2
   - echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+  - sudo apt-get install msttcorefonts
   - sudo fc-cache -f -v
 script:
   - python setup.py develop
