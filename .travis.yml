@@ -4,8 +4,8 @@ language: python
 python:
   - "3.4"
 install:
+  - sudo apt-get install libcairo2-dev python3.2-dev python-scipy python-cairo libpango1.0-0 libpixman-1-0 libcairomm-1.0-1 python-gi-cairo libpangomm-1.4-1 python-gtk2 python-numpy
   - pip install -r requirements.txt
-  - sudo apt-get install libcairo2-dev python3.2-dev python-scipy python-cairo libpango1.0-0 libpixman-1-0 libcairomm-1.0-1 python-gi-cairo libpangomm-1.4-1 python-gtk2
 script:
   - make clean
   - make tests
